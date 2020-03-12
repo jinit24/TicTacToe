@@ -1,4 +1,5 @@
 import curses
+import time
 # Draws the 3 x 3 grid on the terminal
 def createGrid(h,w):
     for i in range(h):
