@@ -17,42 +17,52 @@ def printVal(next_key):
         s = 'X'
     else:
         s = 'O'
-    if (next_key == 55):
+    if (next_key == 55 and arr[0][0]==-1):
         win.addstr(int(h/6),int(w/6),s)
         arr[0][0]=turn%2
+        turn = turn + 1
 
-    elif (next_key == 56):
+    elif (next_key == 56 and arr[0][1]==-1):
         win.addstr(int(h/6),int(w/2),s)
         arr[0][1]=turn%2
+        turn = turn + 1
 
-    elif (next_key == 57):
+    elif (next_key == 57 and arr[0][2]==-1 ):
         win.addstr(int(h/6),int(5*w/6),s)
         arr[0][2]=turn%2
+        turn = turn + 1
 
-    elif (next_key == 52):
+    elif (next_key == 52 and arr[1][0]==-1):
         win.addstr(int(h/2),int(w/6),s)
         arr[1][0]=turn%2
+        turn = turn + 1
 
-    elif (next_key == 53):
+    elif (next_key == 53 and arr[1][1]==-1):
         win.addstr(int(h/2),int(w/2),s)
         arr[1][1]=turn%2
+        turn = turn + 1
 
-    elif (next_key == 54):
+    elif (next_key == 54 and arr[1][2]==-1):
         win.addstr(int(h/2),int(5*w/6),s)
         arr[1][2]=turn%2
+        turn = turn + 1
 
-    elif (next_key == 49):
+    elif (next_key == 49 and arr[2][0]==-1):
         win.addstr(int(5*h/6),int(w/6),s)
         arr[2][0]=turn%2
+        turn = turn + 1
 
-    elif (next_key == 50):
+
+    elif (next_key == 50 and arr[2][1]==-1):
         win.addstr(int(5*h/6),int(w/2),s)
         arr[2][1]=turn%2
+        turn = turn + 1
 
-    elif (next_key == 51):
+
+    elif (next_key == 51 and arr[2][2]==-1):
         win.addstr(int(5*h/6),int(5*w/6),s)
         arr[2][2]=turn%2
-    turn = turn + 1
+        turn = turn + 1
 
 def printX(pair):
     x,y = pair
@@ -165,7 +175,7 @@ def Hum(moves,cost):
             min_U[i] = min_U[i]-20
         elif((c and flag!=-1) or not c):
             if(len(possibleMoves(arr))>0):
-                min_U[i]  = Comp(possibleMoves(arr),min_U[i]-1)
+                min_U[i]  = Comp(possibleMoves(arr),min_U[i]+1)
         else:
             min_U[i]  = min_U[i]
         arr[x][y] = initial
@@ -176,9 +186,10 @@ def Hum(moves,cost):
         if(min_U[i]<min_e):
             min_i = i
             min_e = min_U[i]
+
     return min(min_U)
 
-###initialize screen
+##initialize screen
 sc = curses.initscr()
 h, w = sc.getmaxyx()
 win = curses.newwin(h, w, 0, 0)
@@ -189,25 +200,28 @@ cost =0
 pair = (-1,-1)
 Um = []
 createGrid(h,w)
-turn = 0
 flag = -1
+turn = 0
 
-###Taking input from user through keyboard
+##Taking input from user through keyboard
 while True:
     win.border(0)
     win.timeout(100)
     curses.noecho()
-
     next_key = win.getch()
+
     if(next_key != -1):
         if(next_key==27):
             break
+
         [c,flag] = check()
         if(c):
             break
         printVal(next_key)
-        Comp(possibleMoves(arr),cost)
-        printX(pair)
+        if(turn%2==1):
+            Comp(possibleMoves(arr),cost)
+            printX(pair)
+        
         [c,flag] = check()
         if(c):
             break
@@ -225,5 +239,3 @@ sc.addstr(int(h/2),int(w/2),s)
 sc.refresh()
 time.sleep(2)
 curses.endwin()
-print(arr)
-print(possibleMoves(arr))
