@@ -3,8 +3,8 @@ Tic Tac Toe game that never lets you win as first player or second player.
 Uses minimax algorithm to generate moves and python curses to enter data
 
 Software Required:
-Use the file TicTacToe1 to play as first player 
-TicTacToe2 to play as second player
+Use the file TicTacToe1 to play as first player </br>
+TicTacToe2 to play as second player </br>
 Python3
 
 Libraries reuqired:
