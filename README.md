@@ -1,4 +1,5 @@
 # Tic-Tac-Toe
+Github Page  : https://jinit24.github.io/TicTacToe/
 Tic Tac Toe game that never lets you win as first player or second player.
 Uses minimax algorithm to generate moves and python curses to enter data
 
