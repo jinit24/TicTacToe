@@ -7,11 +7,52 @@
 <script type="text/javascript" src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"></link>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<body class="bg-dark">
+<body style="background-color:black">
 
-	<div class="container bg-light">
-		<div class="display-3 text-left Heading p-2" style="border-bottom: 1px solid black">Tic-Tac-Toe </div>
-		<div class="Body">
+	<div class="container">
+		<div class="display-3 text-left text-white Heading p-2" style="border-bottom: 1px solid white">Tic-Tac-Toe </div>
+		<div class="Body p-3 bg-white">
+				<div class="Date"><h2>30 June, 2020<h2></div>
+				<br>
+				It is one of the simplest games we've played since childhood. It's got different phases attached to it : 1. Why am I always losing? 2. HAH! I won and 3. Oh,that's another draw. I wanted to keep winning, so I tried to decipher this game. What is the best possible move at every stage? <br>
+
+				I'll go over the <b>minimax algorithm, maximizing player and minimizing player</b>. I have used python and a library called <b>curses</b> for the UI. <br><br>
+
+				<div class="display-4"> Explanation </div> <br>
+
+				There are two players involved : computer and human. I've assumed the human to be the minimizing player and hence designed the utility function that way. At every stage, we assume that the other player makes the best possible move. And how we quantify this is using the utility function.<b> Human, the minimizing player will choose the move that has the least utility value and the opposite is true for the computer. Pick the best possible move for both at each stage.</b> Logical right? <br><br>
+
+				So how do we decide the <b>utility function</b>? Let's say the if the human wins by playing a move, we reduce 20 points and if the computer wins we increase 20 points. Game ends at these points. But not all moves are an endpoint right? So, we use the minimax strategy for the next move. We make a move and pick the computer's next best move. Wait if the computer doesn't know the best move? Again the computer will make a move and pick the human's best move. So till the time we either reach a draw, win or a loss we continue the recursion.<b> So we pick the best move of all possible moves for the human, by assuming even the computer does so.</b> Keep in mind the best move for both are quite opposite, one wants to increase the utility function and other reduce it. So we go down this huge recursion tree and <b>at each layer we pick the move with the minimum utility for the human and maximum utility for the computer.</b>
+				<br><br>
+
+				But winning now and winning three steps later shouldn't be the same right? We also have to penalize depth then. So every move extra we take, the utility function increases by 1. Whereas the computer decreases by 1. Keep mind the order of values : 1, 20. You want to design your utility function in such way that it can differntiate between a draw, loss and win. The magnitude of depths (1 in this case) over time should not exceed the win value (20 in this case). If this doesn't happen, it can pick the one with higher depth and not one in which you win. <br> <br>
+
+
+				<div class="display-4"> Algorithm </div> <br>
+
+				<script src="https://gist.github.com/jinit24/da62b452939a151e232634d868a9453a.js"></script> <br>
+
+				Voila! There you go, except for the computer part. It is quite similar except for the signs. For the UI, you can go through the read-me. Simple hard-coded stuff. <br><br>
+
+				<div class="display-4"> Observations </div> <br>
+
+				1. The game is <b>futile</b>. This means that is both players play the game optimally the game always ends in a draw. You can verify this by alternating between human's and the computer's moves. <br>
+
+				2. You can make the <b> first move anywhere </b>. The utility function remains the same wherever you play. Try this out with the one you just wrote. But people still prefer the one in the corners because it allows the opponent to make a mistake and let you win. <br>
+
+				3. While designing the algroithm, the computer prefers the move with higher depth. So, if the computer can win now and win after a move, it'll choose the latter. Nice, right? For a long time, I thought is was a bug. You can design it the other way around as well. <br> <br>
+
+
+				<div class="display-4"> Improvements </div> <br>
+
+				I tried making one for NxN grid. It turns out the that <b>number of computations</b> go out of hand extremely quickly. Let's take a look. For N=3, the first move has 9 possibilities, the computer then has 8 and so on. So a total of 9! moves which is roughly 360,000. Let's say we N=4, number of moves are now 16! which is roughly 10^13, much much bigger. So, how do we optimise this? <br> <br>
+
+				Firstly, we are <b>counting many things multiple times</b>. Let's say the first move is at (0,1) or (1,0), it is the same thing. But we are counting this twice. Maybe we can store the value and check if it's a <i> similar </i> state. How do we quantify if the states are same? Strings maybe. And how many values will we end up storing? Too many probably. <br> <br>
+
+				Secondly, pruning algorithms. But how do we know by how much are we reducing? Reducing 10^13 to 0.5 * 10^13, isn't exactly a huge difference. Alpha-beta pruning is one of the possible ones.<br> <br>
+
+				If you have any queries or suggestions, feel free to hit me up at : dornumofficial@gmail.com. For the complete code , you can click <a
+				href="https://github.com/jinit24/TicTacToe">here</a>
 
 		</div>
 
