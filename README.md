@@ -7,7 +7,7 @@ Use the file TicTacToe1 to play as first player </br>
 TicTacToe2 to play as second player </br>
 Python3
 
-Libraries reuqired:
+Libraries required:
 curses
 
 Input:
