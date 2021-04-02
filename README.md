@@ -12,13 +12,15 @@ curses
 
 ## Playing the Game ## 
 
-1. Download the file NewTicTacToe.py
-2. Type the following on the terminal
+
+1. Type the following on the terminal
 ```
+git clone https://github.com/jinit24/TicTacToe
+cd TicTacToe
 python3 NewTicTacToe.py
 ```
-3. Type 1 or 2 to select which player you want to play as.
-4. Select using the mouse any sqaure that you want to mark.
+2. Type 1 or 2 to select which player you want to play as.
+3. Select using the mouse any sqaure that you want to mark.
 
 
 ## Alternate C++ File ##
