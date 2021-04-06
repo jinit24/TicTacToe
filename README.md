@@ -27,14 +27,3 @@ Iterative deepening has a time limit of 1 second for each move. Other implementa
 2. checks_counts.py - Contains the checking of board and generation of possible moves. (Similar states idea implemented in this)
 3. UI_elements.py - Contains the making of the board using curses and variable initialization for the same.
 4. Iterative_deepening.py and depth_limited_search.py - Contain the final move generation and adding time and depth limits. 
-
-## Alternate C++ File ##
-### Now in Intermediate Ideas ###
-1. Here you can provide a testcase. The code will return the best move to be played. Example of a testcase :
-```
-X  
-___  
-___  
-_XO  
-```
-Where the X on top is whose turn is to be played.
