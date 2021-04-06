@@ -18,7 +18,9 @@ cd TicTacToe
 python3 iterative_deepening.py
 ```
 2. Type the size of grid you want to play on then type 1 or 2 to select which player you want to play as.
-3. Select using the mouse any sqaure that you want to mark.
+3. Select using the mouse any sqaure that you want to mark. 
+
+Iterative deepening has a time limit of 1 second for each move. Other implementations don't have a limit on time.
 
 
 ## Alternate C++ File ##
