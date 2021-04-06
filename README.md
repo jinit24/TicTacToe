@@ -6,7 +6,7 @@ Tic Tac Toe game that never lets you win.
 2. Idea of similar states is implemented to reduce search space.
 3. Iterative deepening and depth-limited search is implemented using above 2.
 
-## Libraries required: ##
+## Libraries required ##
 curses
 
 ## Playing the Game ## 
@@ -22,6 +22,11 @@ python3 iterative_deepening.py
 
 Iterative deepening has a time limit of 1 second for each move. Other implementations don't have a limit on time.
 
+## Files ##
+1. algo.py - Contains the heart of the algorithm : alpha-beta pruning and the naive version.
+2. checks_counts.py - Contains the checking of board and generation of possible moves. (Similar states idea implemented in this)
+3. UI_elements.py - Contains the making of the board using curses and variable initialization for the same.
+4. Iterative_deepening.py and depth_limited_search.py - Contain the final move generation and adding time and depth limits. 
 
 ## Alternate C++ File ##
 ### Now in Intermediate Ideas ###
