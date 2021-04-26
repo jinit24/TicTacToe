@@ -27,5 +27,5 @@ python3 monte.py
 2. monte.py - final call of search and playing the game.
 
 ## References ##
-For theory and idea - <a href = "https://medium.com/@quasimik/monte-carlo-tree-search-applied-to-letterpress-34f41c86e238">Explanation </a>
+For theory and idea - <a href = "https://medium.com/@quasimik/monte-carlo-tree-search-applied-to-letterpress-34f41c86e238">Explanation </a>  
 For code- <a href = "https://ai-boson.github.io/mcts/">https://ai-boson.github.io/mcts/</a>
